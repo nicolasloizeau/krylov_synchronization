@@ -51,7 +51,7 @@ println(typeof(O))
 assumptions = W`Assumptions -> W > 0`
 
 # compute the first 6 Lanczos coefficients
-bn = lanczos(H, O, 8; assumptions=assumptions)
+bn = lanczos(H, O, 6; assumptions=assumptions)
 
 for b in bn
     println()
