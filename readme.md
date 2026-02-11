@@ -2,10 +2,20 @@
 Julia code to compute symbolic Lanczos coefficients of the Saw model from
 [Krylov space perturbation theory for quantum synchronization in closed systems]().
 ## First 6 coefficients
-![equations](https://latex.codecogs.com/svg.image?\begin{align}b_1^2=&4 \left(W^2+1\right)\\b_2^2=&\frac{48 W^2}{W^2+1}\\b_3^2=&\frac{4 \left(3 W^4+22 W^2+55\right)}{3 \left(W^2+1\right)}\\b_4^2=&\frac{16 \left(84 W^4+293 W^2+209\right)}{9 W^4+66 W^2+165}\\b_5^2=&\frac{12 \left(468 W^8+4781 W^6+26829 W^4+77275 W^2+55759\right)}{\left(84 W^2+209\right) \left(3 W^4+22 W^2+55\right)}\\b_6^2=&\frac{16 \left(3 W^4+22 W^2+55\right) \left(9216 W^8+175760 W^6+759424 W^4+1739727 W^2+538097\right)}{\left(84 W^2+209\right) \left(468 W^8+4781 W^6+26829 W^4+77275 W^2+55759\right)}\\\end{align}\begin{align}
-b_1^2=&4 \left(W^2+1\right)\\b_2^2=&\frac{48 W^2}{W^2+1}\\b_3^2=&\frac{4 \left(3 W^4+22 W^2+55\right)}{3 \left(W^2+1\right)}\\b_4^2=&\frac{16 \left(84 W^4+293 W^2+209\right)}{9 W^4+66 W^2+165}\\b_5^2=&\frac{12 \left(468 W^8+4781 W^6+26829 W^4+77275 W^2+55759\right)}{\left(84 W^2+209\right) \left(3 W^4+22 W^2+55\right)}\\b_6^2=&\frac{16 \left(3 W^4+22 W^2+55\right) \left(9216 W^8+175760 W^6+759424 W^4+1739727 W^2+538097\right)}{\left(84 W^2+209\right) \left(468 W^8+4781 W^6+26829 W^4+77275 W^2+55759\right)}\\\end{align}
 
-## First 6 coefficients in Mathematica form
+![](coeffs.png)
+
+## First 6 coefficients in Mathematica 
 ```mathematica
+Times[2, Power[Plus[1, Power[W, 2]], Rational[1, 2]]]
 
+Times[4, Power[3, Rational[1, 2]], W, Power[Plus[1, Power[W, 2]], Rational[-1, 2]]]
+
+Times[2, Power[3, Rational[-1, 2]], Power[Times[Power[Plus[1, Power[W, 2]], -1], Plus[55, Times[22, Power[W, 2]], Times[3, Power[W, 4]]]], Rational[1, 2]]]
+
+Times[4, Power[Times[Power[Plus[165, Times[66, Power[W, 2]], Times[9, Power[W, 4]]], -1], Plus[209, Times[293, Power[W, 2]], Times[84, Power[W, 4]]]], Rational[1, 2]]]
+
+Times[2, Power[3, Rational[1, 2]], Power[Times[Plus[209, Times[84, Power[W, 2]]], Plus[55, Times[22, Power[W, 2]], Times[3, Power[W, 4]]], Power[Plus[55759, Times[77275, Power[W, 2]], Times[26829, Power[W, 4]], Times[4781, Power[W, 6]], Times[468, Power[W, 8]]], -1]], Rational[-1, 2]]]
+
+Times[4, Power[Times[Power[Plus[209, Times[84, Power[W, 2]]], -1], Plus[55, Times[22, Power[W, 2]], Times[3, Power[W, 4]]], Power[Plus[55759, Times[77275, Power[W, 2]], Times[26829, Power[W, 4]], Times[4781, Power[W, 6]], Times[468, Power[W, 8]]], -1], Plus[538097, Times[1739727, Power[W, 2]], Times[759424, Power[W, 4]], Times[175760, Power[W, 6]], Times[9216, Power[W, 8]]]], Rational[1, 2]]]
 ```
